@@ -30,7 +30,7 @@ public class Client {
                     service.printGraph();
                     break;
                 case "2":
-                    service.division();
+                    service.findMin();
                     service.printGraph();
                     break;
                 case "3":

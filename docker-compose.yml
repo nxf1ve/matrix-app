@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: matrix-app-server
+    build:
+      context: ./server
+    ports:
+      - "6060:8082"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  client:
+    container_name: matrix-app-client
+    build:
+      context: ./client
+    depends_on:
+      - server
+    networks:
+      - app-network
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge

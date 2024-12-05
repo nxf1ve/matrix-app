@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class Service {
     private int[][] graph;
-    private static final String SERVER_URL = "http://localhost:5050";
+    private static final String SERVER_URL = "http://localhost:6060";
 
     public void genGraph(int size) {
         RestTemplate restTemplate = new RestTemplate();
@@ -16,12 +16,12 @@ public class Service {
         graph = response.getBody();
     }
 
-    public void division() {
+    public void findMin() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<int[][]> entity = new HttpEntity<>(graph, headers);
-        ResponseEntity<int[][]> response = restTemplate.postForEntity(SERVER_URL + "/divide", entity, int[][].class);
+        ResponseEntity<int[][]> response = restTemplate.postForEntity(SERVER_URL + "/findMin", entity, int[][].class);
         graph = response.getBody();
     }
 
