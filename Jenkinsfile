@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/nxf1ve/matrix-app'
+        REPO_URL = 'https://github.com/nxf1ve/matrix-app.git'
         BRANCH = 'master'
     }
 
